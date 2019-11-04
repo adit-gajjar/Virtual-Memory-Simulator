@@ -1,0 +1,6 @@
+#!/bin/bash
+
+# IMPORTANT: this script was writen to work on Linux.  It won't work on 
+# Windows or Mac.
+
+valgrind --tool=lackey --trace-mem=yes ./$1 ${@:2} |& ./fastslim.py  --keepcode --buffersize 8 > tr-$1.ref
